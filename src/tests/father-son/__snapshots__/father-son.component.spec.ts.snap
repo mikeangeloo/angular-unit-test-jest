@@ -34,6 +34,7 @@ exports[`FatherSonComponent si hay cliente, hacer match con e snapshot 1`] = `
   <br />
   <button
     class="btn btn-outline-primary"
+    data-test="btn-update"
   >
     Cambiar Id
   </button>

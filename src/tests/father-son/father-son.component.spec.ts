@@ -55,7 +55,28 @@ describe('FatherSonComponent', () => {
     const btnDelete = compiled.querySelector('[data-test=btn-delete]');
     btnDelete?.dispatchEvent(new Event('click'));
     expect(component.onDeleteClient.emit).toHaveBeenCalled();
-    console.log(btnDelete?.innerHTML);
   })
+
+  it ('debe de emitir onClientUpdated con el boton de cambiar ID', () => {
+    component.client = {id: 1, name: 'Juan'}
+    fixture.detectChanges();
+    jest.spyOn(component.onClientUpdated, 'emit');
+    const btnChange = compiled.querySelector('[data-test=btn-update]');
+    btnChange?.dispatchEvent(new Event('click'));
+    expect(component.onClientUpdated.emit).toHaveBeenCalledWith({id: 5, name: 'Juan'});
+  })
+
+  it ('debe de emiti onChangeClient con el ID especificado SI hay un cliente', () =>{
+    jest.spyOn(component.onClientUpdated, 'emit');
+    component.onChange(10);
+    expect(component.onClientUpdated.emit).not.toHaveBeenCalled();
+
+    component.client = {id: 1, name: 'Juan'}
+    fixture.detectChanges();
+    component.onChange(10);
+    expect(component.onClientUpdated.emit).toHaveBeenCalledWith({id: 10, name: 'Juan'})
+  })
+
+
 
 });
