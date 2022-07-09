@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {CounterComponent} from './basic/counter/counter.component';
+import {FatherComponent} from './basic/father/father.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
     path: 'pokemons',
     loadChildren: () => import('./pokemons/pokemons.module').then(m => m.PokemonsModule)
+  },
+  {
+    path: 'basic/father',
+    component: FatherComponent
   },
   {
     path: '**',
