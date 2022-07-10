@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CounterComponent } from './counter/counter.component';
 import { FatherComponent } from './father/father.component';
 import { FatherSonComponent } from './father-son/father-son.component';
+import { CounterRouterComponent } from './counter-router/counter-router.component';
 
 
 
@@ -10,7 +11,8 @@ import { FatherSonComponent } from './father-son/father-son.component';
   declarations: [
     CounterComponent,
     FatherComponent,
-    FatherSonComponent
+    FatherSonComponent,
+    CounterRouterComponent
   ],
   imports: [
     CommonModule
